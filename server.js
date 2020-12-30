@@ -4,9 +4,19 @@ const resolvers = require("./resolvers/resolvers");
 const context = require("./configs/context");
 const serverOptions = require("./configs/serverOptions");
 
+// Apollo Settings
+
+const ApolloSettings = { 
+  typeDefs, 
+  resolvers, 
+  context, 
+  cors: 
+  { origin: "*" } 
+};
+
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
-const server = new ApolloServer({ typeDefs, resolvers, context });
+const server = new ApolloServer(ApolloSettings);
 
 // The `listen` method launches a web server.
 server.listen(serverOptions).then(({ url }) => {
