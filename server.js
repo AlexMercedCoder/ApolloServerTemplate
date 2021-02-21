@@ -3,6 +3,7 @@ const typeDefs = require("./typedefs/typedefs");
 const resolvers = require("./resolvers/resolvers");
 const context = require("./configs/context");
 const serverOptions = require("./configs/serverOptions");
+const {log} = require("mercedlogger")
 
 // Apollo Settings
 
@@ -20,5 +21,5 @@ const server = new ApolloServer(ApolloSettings);
 
 // The `listen` method launches a web server.
 server.listen(serverOptions).then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
+  log.green("Server Initialize",`🚀  Server ready at ${url}`);
 });
